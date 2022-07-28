@@ -49,6 +49,10 @@ public class Pedido {
     }
 
     public Integer calcularTotal() {
-        return 0;
+        return opcion.getPrecio()
+                + adicionales.stream()
+                        .map(a -> a.getPrecio())
+                        .reduce((a, b) -> a + b)
+                        .orElse(0);
     }
 }
