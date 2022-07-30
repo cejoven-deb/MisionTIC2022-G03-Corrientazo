@@ -11,12 +11,19 @@ import co.edu.utp.misiontic.cesardiaz.model.OpcionJugo;
 import co.edu.utp.misiontic.cesardiaz.model.OpcionPrincipio;
 import co.edu.utp.misiontic.cesardiaz.model.OpcionSopa;
 import co.edu.utp.misiontic.cesardiaz.model.Pedido;
+import co.edu.utp.misiontic.cesardiaz.view.PrincipalVista;
 
 /**
  * Hello world!
  */
 public final class App {
     public static void main(String[] args) {
+        //prueba();
+        var menu = new PrincipalVista();
+        menu.iniciarAplicacion();
+    }
+
+    private static void prueba() {
         var mesa = new Mesa("01");
 
         var sopa = new OpcionSopa("Pasta");

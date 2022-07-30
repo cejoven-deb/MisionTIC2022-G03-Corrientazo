@@ -55,4 +55,11 @@ public class Pedido {
                         .reduce((a, b) -> a + b)
                         .orElse(0);
     }
+
+    @Override
+    public String toString() {
+        return "Pedido [cliente=" + cliente + ", estado=" + estado + ", opcion=" + opcion
+                + ", adicionales=" + adicionales + "]";
+    }
+
 }

@@ -15,4 +15,10 @@ public class Bandeja extends OpcionPedido {
         super(precio, principio, carne, jugo);
     }
 
+    @Override
+    public String toString() {
+        return "Bandeja [precio=" + getPrecio() + ", principio=" + getPrincipio()
+                + ", carne=" + getCarne() + ", ensalada=" + getEnsalada() + ", jugo=" + getJugo() + "]";
+    }
+
 }

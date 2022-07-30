@@ -10,4 +10,10 @@ public class OpcionEnsalada {
     public String getNombre() {
         return nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Ensalada de " + nombre;
+    }
+
 }

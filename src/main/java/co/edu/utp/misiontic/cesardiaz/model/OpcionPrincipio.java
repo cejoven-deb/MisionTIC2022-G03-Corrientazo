@@ -11,4 +11,9 @@ public class OpcionPrincipio {
         return nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Principio de " + nombre;
+    }
+
 }

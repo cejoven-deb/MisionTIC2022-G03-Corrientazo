@@ -10,4 +10,9 @@ public class OpcionSopa {
     public String getNombre() {
         return nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Sopa de " + nombre;
+    }
 }
