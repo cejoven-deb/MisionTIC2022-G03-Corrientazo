@@ -35,23 +35,12 @@ public class Mesa {
                 .orElse(0);
     }
 
-    public Integer pagar(Integer efectivo) throws EfectivoInsuficienteException {
-        // Valido los datos
-        var total = calcularValorPagar();
-        if (efectivo < total) {
-            // Devolver error de fondos insuficientes
-            throw new EfectivoInsuficienteException("El valor entregado no cubre el total a pagar");
-        }
-
-        // Limpiar pedidos
-        pedidos.clear();
-
-        // Retorno la devuelta
-        return efectivo - total;
-    }
-
     @Override
     public String toString() {
         return "Mesa # " + numero;
+    }
+
+    public void limpiarPedidos() {
+        pedidos.clear();
     }
 }

@@ -3,9 +3,11 @@ package co.edu.utp.misiontic.cesardiaz.view;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import co.edu.utp.misiontic.cesardiaz.model.Bandeja;
 import co.edu.utp.misiontic.cesardiaz.model.Completo;
+import co.edu.utp.misiontic.cesardiaz.model.EstadoPedido;
 import co.edu.utp.misiontic.cesardiaz.model.Mesa;
 import co.edu.utp.misiontic.cesardiaz.model.OpcionCarne;
 import co.edu.utp.misiontic.cesardiaz.model.OpcionEnsalada;
@@ -116,6 +118,31 @@ public class PedidoView {
 
     public void mostrarError(String error) {
         System.out.println(error);
+    }
+
+    public Pedido seleccionarPedidoEntrega(Mesa mesa) {
+        var pedidos = mesa.getPedidos().stream()
+                .filter(p -> p.getEstado() == EstadoPedido.PENDIENTE_ENTREGAR)
+                .collect(Collectors.toList());
+
+        return pedirOpcion(pedidos, "Pedido");
+    }
+
+    public Integer leerEfectivo() {
+        Integer respuesta = null;
+
+        while (respuesta == null) {
+            try {
+                System.out.print("Ingrese el valor de efectivo recibido: ");
+                respuesta = scanner.nextInt();
+            } catch (InputMismatchException ex) {
+                System.err.println("Valor inválidi. Intente de nuevo.");
+            } finally {
+                scanner.nextLine();
+            }
+        }
+
+        return respuesta;
     }
 
 }

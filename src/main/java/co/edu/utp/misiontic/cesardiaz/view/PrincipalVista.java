@@ -72,23 +72,18 @@ public class PrincipalVista {
                 case 0:
                     break;
                 case 1:
-                    // TODO: Implementar
                     controlador.agregarPedidoAMesa();
                     break;
                 case 2:
-                    // TODO: Implementar
                     controlador.agregarAdicionalAPedido();
                     break;
                 case 3:
-                    // TODO: Implementar
                     controlador.entregarPedidoDeMesa();
                     break;
                 case 4:
-                    // TODO: Implementar
                     controlador.pagarCuentaMesa();
                     break;
                 case 5:
-                    // TODO: Implementar
                     controlador.consultarEstadoMesa();
                     break;
                 default:
