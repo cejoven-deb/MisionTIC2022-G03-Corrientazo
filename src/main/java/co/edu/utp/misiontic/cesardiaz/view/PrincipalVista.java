@@ -113,7 +113,7 @@ public class PrincipalVista {
                 case 0:
                     break;
                 case 1:
-                    // TODO: Implementar
+                    controlador.agregarMesa();
                     break;
                 case 2:
                     // TODO: Implementar

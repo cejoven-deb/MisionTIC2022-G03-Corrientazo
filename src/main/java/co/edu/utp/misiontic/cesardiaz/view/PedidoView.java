@@ -105,11 +105,10 @@ public class PedidoView {
         }
     }
 
-    public void mostrarEstadoMesa(Mesa mesa) {
+    public void mostrarEstadoMesa(Mesa mesa, List<Pedido> pedidos) {
         System.out.println(mesa);
         System.out.println("Pedidos:");
-        mesa.getPedidos()
-                .forEach(System.out::println);
+        pedidos.forEach(System.out::println);
     }
 
     public void mostrarMensaje(String mensaje) {
@@ -120,8 +119,8 @@ public class PedidoView {
         System.out.println(error);
     }
 
-    public Pedido seleccionarPedidoEntrega(Mesa mesa) {
-        var pedidos = mesa.getPedidos().stream()
+    public Pedido seleccionarPedidoEntrega(List<Pedido> datos) {
+        var pedidos = datos.stream()
                 .filter(p -> p.getEstado() == EstadoPedido.PENDIENTE_ENTREGAR)
                 .collect(Collectors.toList());
 
