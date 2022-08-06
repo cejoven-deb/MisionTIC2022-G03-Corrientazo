@@ -194,4 +194,39 @@ public class PedidoDao {
         }
     }
 
+    public void eliminarPedidosDeMesa(Mesa mesa) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt1 = null;
+        PreparedStatement stmt2 = null;
+        try {
+            conn = JDBCUtilities.getConnection();
+            var sql = "DELETE FROM OpcionPedido"
+                    + " WHERE id_pedido IN ("
+                    + "    SELECT id"
+                    + "    FROM Pedido"
+                    + "    WHERE id_mesa = ?"
+                    + ");";
+            stmt1 = conn.prepareStatement(sql);
+            stmt1.setInt(1, mesa.getId());
+            stmt1.executeUpdate();
+
+            sql = "DELETE FROM Pedido"
+                    + " WHERE id_mesa = ?;";
+            stmt2 = conn.prepareStatement(sql);
+            stmt2.setInt(1, mesa.getId());
+            stmt2.executeUpdate();
+
+        } finally {
+            if (stmt2 != null) {
+                stmt2.close();
+            }
+            if (stmt1 != null) {
+                stmt1.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
 }

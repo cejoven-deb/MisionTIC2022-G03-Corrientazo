@@ -34,14 +34,7 @@ public class Mesa {
         this.pedidos.add(pedido);
     }
 
-    public Integer calcularValorPagar() {
-        return pedidos.stream()
-                .filter(p -> p.getEstado() == EstadoPedido.PENDIENTE_COBRAR)
-                .map(p -> p.calcularTotal())
-                .reduce((a, b) -> a + b)
-                .orElse(0);
-    }
-
+    
     @Override
     public String toString() {
         return "Mesa # " + numero;
