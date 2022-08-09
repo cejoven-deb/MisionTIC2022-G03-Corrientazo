@@ -1,5 +1,7 @@
 package co.edu.utp.misiontic.cesardiaz.model;
 
+import java.util.Objects;
+
 public class OpcionCarne {
     private String nombre;
     private Integer id;
@@ -23,6 +25,31 @@ public class OpcionCarne {
     @Override
     public String toString() {
         return nombre;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final OpcionCarne other = (OpcionCarne) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
 }
